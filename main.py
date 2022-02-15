@@ -2,6 +2,8 @@ from tkinter import *
 import tkinter as tk
 import tksheet
 from tkinter.filedialog import askopenfile
+
+
 from openpyxl import load_workbook
 import xlrd
 import ttkbootstrap as ttk
@@ -49,8 +51,9 @@ def open_file():
     for i in batch_seq:
         print(i)
 
-def clr_dataframe():
- dframe._clear_item_cache()
+def close():
+   #win.destroy()
+   root.quit()
 
 #
 # root = Tk()
@@ -61,18 +64,17 @@ def clr_dataframe():
 # root.mainloop()
 
 root = Tk()
-root.geometry('580x400')
+root.geometry('800x600')
 
 btn = Button(root, text ='Open the batch sequence excel file', command = open_file)
 btn.pack(side='top')
 
-btn2 = Button(root, text ='clear data', command = clr_dataframe)
+btn2 = Button(root, text ='Close the program', command = close)
 btn2.pack(side='bottom')
-
-
 
 # dates = pd.date_range('20210101', periods=8)
 # dframe = pd.DataFrame(np.random.randn(8,4),index=dates,columns=list('ABCD'))
+ini_string = 'SWARM TOPOLOGY MANAGER'
 dframe = pd.DataFrame
 
 txt = Text(root)
@@ -90,4 +92,4 @@ print (dframe)
 
 
 
-mainloop()
+root.mainloop()
